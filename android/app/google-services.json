@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "947595912716",
+    "firebase_url": "https://flutter-full-newss-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "flutter-full-newss",
+    "storage_bucket": "flutter-full-newss.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947595912716:android:47b74c996a6ef535f33029",
+        "android_client_info": {
+          "package_name": "com.jazherine.flutter_firebase_full_news_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7lhPcwyvAF3N2FWPI5oaFI2C2FEvqdiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
