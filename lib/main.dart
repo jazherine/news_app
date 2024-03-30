@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_full_news_app/feature/home/home_view.dart';
+import 'package:flutter_firebase_full_news_app/product/initialize/app_start_init.dart';
 
-void main() => runApp(const MyApp());
+Future<void> main() async {
+  await ApplicationStart.init();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,9 +18,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Material App Bar'),
         ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
+        body: const HomeView(),
       ),
     );
   }
