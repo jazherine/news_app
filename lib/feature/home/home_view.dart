@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
+
 import 'package:flutter_firebase_full_news_app/product/model/news.dart';
 import 'package:flutter_firebase_full_news_app/product/utility/exception/custom_exception.dart';
-
-import 'package:kartal/kartal.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});

@@ -45,6 +45,11 @@ dependencies:
   firebase_core: ^2.27.2
   cloud_firestore: ^4.15.10
   equatable: ^2.0.5
+
+ #UTİLİTY DEPENDENCIES
+  animated_text_kit: ^4.2.2
+
+ 
   
   
 

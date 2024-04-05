@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase_full_news_app/feature/login/login_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:flutter_firebase_full_news_app/feature/login/login_provider.dart';
 
 class LoginView extends ConsumerStatefulWidget {
   const LoginView({super.key});

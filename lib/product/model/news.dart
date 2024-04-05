@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
-import 'package:flutter_firebase_full_news_app/product/utility/exception/base/base_firebase_model.dart';
+import 'package:flutter_firebase_full_news_app/product/utility/base/base_firebase_model.dart';
 
 class News extends Equatable implements IdModel, BaseFireBaseModel<News> {
   const News({
@@ -60,7 +60,7 @@ class News extends Equatable implements IdModel, BaseFireBaseModel<News> {
   }
 
   @override
-  News? fromFirebase(DocumentSnapshot<Map<String, dynamic>> snapshot) {
+  News fromFirebase(DocumentSnapshot<Map<String, dynamic>> snapshot) {
     // TODO: implement fromFirebase
     throw UnimplementedError();
   }
