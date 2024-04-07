@@ -10,8 +10,10 @@ import '../../firebase_options.dart';
 class ApplicationStart {
   const ApplicationStart._();
   static Future<void> init() async {
-    await DeviceUtility.instance.initPackageInfo();
     WidgetsFlutterBinding.ensureInitialized();
+
+    await DeviceUtility.instance.initPackageInfo();
+
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );

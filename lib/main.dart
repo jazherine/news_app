@@ -10,6 +10,7 @@ import 'product/initialize/app_start_init.dart';
 
 Future<void> main() async {
   await ApplicationStart.init();
+
   runApp(const ProviderScope(child: MyApp()));
 }
 

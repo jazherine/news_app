@@ -48,6 +48,7 @@ dependencies:
 
  #UTİLİTY DEPENDENCIES
   animated_text_kit: ^4.2.2
+  firebase_storage: ^11.7.0
 
  
   

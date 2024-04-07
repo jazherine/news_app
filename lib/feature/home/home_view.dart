@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_full_news_app/product/service/firebase_cloudStorage.dart';
 import 'package:kartal/kartal.dart';
 
 import 'package:flutter_firebase_full_news_app/product/model/news.dart';
-import 'package:flutter_firebase_full_news_app/product/utility/exception/custom_exception.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -37,12 +37,13 @@ class _HomeListView extends StatelessWidget {
 
     final response = news.withConverter(
       fromFirestore: (snapshot, options) {
-        return const News().fromFirebase(snapshot);
+        return News().fromFirebase(snapshot);
       },
       toFirestore: (value, options) {
         return value.toJson();
       },
     ).get();
+
     return FutureBuilder(
       future: response,
       builder: (context, snapshot) {
@@ -68,9 +69,26 @@ class _HomeListView extends StatelessWidget {
                   return Card(
                     child: Column(
                       children: [
-                        Image.network(
-                          values[index].backgroundImage ?? ' ',
-                          height: context.sized.dynamicHeight(0.1),
+                        FutureBuilder(
+                          future: FirebaseCloudStorage.instance.fetchImage(),
+                          builder: (context, snapshot) {
+                            switch (snapshot.connectionState) {
+                              case ConnectionState.none:
+                                return const Text('Future işlemi henüz başlamadı.');
+                              // TODO: Handle this case.
+                              case ConnectionState.waiting:
+                                return const CircularProgressIndicator();
+                              case ConnectionState.active:
+                                return const CircularProgressIndicator();
+
+                              // TODO: Handle this case.
+                              case ConnectionState.done:
+                                return Image.network(
+                                  snapshot.data!,
+                                  height: context.sized.dynamicHeight(0.1),
+                                );
+                            }
+                          },
                         ),
                         Text(values[index].title ?? ' ', style: context.general.textTheme.labelLarge),
                       ],

@@ -1,11 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_firebase_full_news_app/product/service/firebase_cloudStorage.dart';
 
 import 'package:flutter_firebase_full_news_app/product/utility/base/base_firebase_model.dart';
-import 'package:flutter_firebase_full_news_app/product/utility/exception/custom_exception.dart';
 
 class News extends Equatable with IdModel, BaseFireBaseModel<News> {
-  const News({
+  News({
     this.category,
     this.categoryId,
     this.title,
@@ -17,6 +16,7 @@ class News extends Equatable with IdModel, BaseFireBaseModel<News> {
   final String? categoryId;
   final String? title;
   final String? backgroundImage;
+
   @override
   final String? id;
 
