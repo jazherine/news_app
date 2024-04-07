@@ -2,8 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
 import 'package:flutter_firebase_full_news_app/product/utility/base/base_firebase_model.dart';
+import 'package:flutter_firebase_full_news_app/product/utility/exception/custom_exception.dart';
 
-class News extends Equatable implements IdModel, BaseFireBaseModel<News> {
+class News extends Equatable with IdModel, BaseFireBaseModel<News> {
   const News({
     this.category,
     this.categoryId,
@@ -57,11 +58,5 @@ class News extends Equatable implements IdModel, BaseFireBaseModel<News> {
       backgroundImage: json['backgroundImage'] as String?,
       id: json['id'] as String?,
     );
-  }
-
-  @override
-  News fromFirebase(DocumentSnapshot<Map<String, dynamic>> snapshot) {
-    // TODO: implement fromFirebase
-    throw UnimplementedError();
   }
 }

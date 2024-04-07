@@ -14,7 +14,7 @@ class SplashProvider extends StateNotifier<SplashState> {
     final databaseValue = await getVersionNumberFromDatabase();
 
     if (databaseValue == null || databaseValue.isEmpty) {
-      state = state.copyWith(isRequiredForceUpdate: true);
+      state = state.copyWith(isRedirectHome: false);
       return;
     }
     final checkIsNeedForceUpdate = VersionManager(deviceValue: clientVersion, databasevalue: databaseValue);
@@ -28,8 +28,6 @@ class SplashProvider extends StateNotifier<SplashState> {
   }
 
   Future<String?> getVersionNumberFromDatabase() async {
-    if (kIsWeb) return null;
-
     final response = await FirebaseCollections.version.reference
         .withConverter<NumberModel>(
           fromFirestore: (snapshot, options) {
@@ -39,7 +37,12 @@ class SplashProvider extends StateNotifier<SplashState> {
         )
         .doc(PlatformEnum.versionName)
         .get();
-    return response.data()?.number;
+    final numberModel = response.data();
+    if (numberModel != null) {
+      return numberModel.number;
+    } else {
+      return '1.0.0';
+    }
   }
 }
 

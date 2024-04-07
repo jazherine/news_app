@@ -40,8 +40,6 @@ class _HomeListView extends StatelessWidget {
         return const News().fromFirebase(snapshot);
       },
       toFirestore: (value, options) {
-        if (value == null) throw FirebaseCustomException('$value not null ');
-
         return value.toJson();
       },
     ).get();
@@ -71,10 +69,10 @@ class _HomeListView extends StatelessWidget {
                     child: Column(
                       children: [
                         Image.network(
-                          values[index]?.backgroundImage ?? ' ',
+                          values[index].backgroundImage ?? ' ',
                           height: context.sized.dynamicHeight(0.1),
                         ),
-                        Text(values[index]?.title ?? ' ', style: context.general.textTheme.labelLarge),
+                        Text(values[index].title ?? ' ', style: context.general.textTheme.labelLarge),
                       ],
                     ),
                   );

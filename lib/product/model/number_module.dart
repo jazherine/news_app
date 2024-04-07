@@ -3,8 +3,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
 import 'package:flutter_firebase_full_news_app/product/utility/base/base_firebase_model.dart';
+import 'package:flutter_firebase_full_news_app/product/utility/exception/custom_exception.dart';
 
-class NumberModel extends Equatable implements IdModel, BaseFireBaseModel<NumberModel> {
+class NumberModel extends Equatable with IdModel, BaseFireBaseModel<NumberModel> {
   NumberModel({
     this.number,
   });
@@ -43,10 +44,4 @@ class NumberModel extends Equatable implements IdModel, BaseFireBaseModel<Number
   @override
   // TODO: implement props
   List<Object?> get props => [number];
-
-  @override
-  NumberModel fromFirebase(DocumentSnapshot<Map<String, dynamic>> snapshot) {
-    // TODO: implement fromFirebase
-    throw UnimplementedError();
-  }
 }
