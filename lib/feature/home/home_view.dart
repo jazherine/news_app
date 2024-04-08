@@ -69,27 +69,7 @@ class _HomeListView extends StatelessWidget {
                   return Card(
                     child: Column(
                       children: [
-                        FutureBuilder(
-                          future: FirebaseCloudStorage.instance.fetchImage(),
-                          builder: (context, snapshot) {
-                            switch (snapshot.connectionState) {
-                              case ConnectionState.none:
-                                return const Text('Future işlemi henüz başlamadı.');
-                              // TODO: Handle this case.
-                              case ConnectionState.waiting:
-                                return const CircularProgressIndicator();
-                              case ConnectionState.active:
-                                return const CircularProgressIndicator();
-
-                              // TODO: Handle this case.
-                              case ConnectionState.done:
-                                return Image.network(
-                                  snapshot.data!,
-                                  height: context.sized.dynamicHeight(0.1),
-                                );
-                            }
-                          },
-                        ),
+                        firebaseStorageImages(),
                         Text(values[index].title ?? ' ', style: context.general.textTheme.labelLarge),
                       ],
                     ),
@@ -100,6 +80,30 @@ class _HomeListView extends StatelessWidget {
               return const SizedBox();
             }
           // TODO: Handle this case.
+        }
+      },
+    );
+  }
+
+  FutureBuilder<String?> firebaseStorageImages() {
+    return FutureBuilder(
+      future: FirebaseCloudStorage.instance.fetchImage(),
+      builder: (context, snapshot) {
+        switch (snapshot.connectionState) {
+          case ConnectionState.none:
+            return const Text('Future işlemi henüz başlamadı.');
+          // TODO: Handle this case.
+          case ConnectionState.waiting:
+            return const CircularProgressIndicator();
+          case ConnectionState.active:
+            return const CircularProgressIndicator();
+
+          // TODO: Handle this case.
+          case ConnectionState.done:
+            return Image.network(
+              snapshot.data!,
+              height: context.sized.dynamicHeight(0.1),
+            );
         }
       },
     );

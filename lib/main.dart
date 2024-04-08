@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_full_news_app/feature/auth/authentication_view.dart';
 import 'package:flutter_firebase_full_news_app/feature/splash/splash_view.dart';
 import 'package:flutter_firebase_full_news_app/product/constants/index.dart';
+import 'package:flutter_firebase_full_news_app/product/initialize/app_theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:kartal/kartal.dart';
 
 // ignore: always_use_package_imports
 import 'feature/home/home_view.dart';
@@ -22,11 +25,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: StringConstants.appName,
+      theme: AppTheme(context: context).theme,
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Material App Bar'),
         ),
-        body: const SplashView(),
+        body: const AuthenticationView(),
       ),
     );
   }
