@@ -1,10 +1,11 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_firebase_full_news_app/product/service/firebase_cloudStorage.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'package:flutter_firebase_full_news_app/product/utility/base/base_firebase_model.dart';
 
+@immutable
 class News extends Equatable with IdModel, BaseFireBaseModel<News> {
-  News({
+  const News({
     this.category,
     this.categoryId,
     this.title,

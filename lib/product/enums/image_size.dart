@@ -1,7 +1,8 @@
 enum ImageSizes {
-  high(256);
+  high(256),
+  normal(96);
 
-  final int value;
+  final double value;
 
   const ImageSizes(this.value);
 }

@@ -1,7 +1,8 @@
 enum WidgetSize {
-  buttonNormal(56);
+  buttonNormal(56),
+  iconNormal(30);
 
-  final int value;
+  final double value;
 
   const WidgetSize(this.value);
 }
